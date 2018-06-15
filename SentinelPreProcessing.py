@@ -4,10 +4,8 @@
 
 #----------------------------DESCRIPTION
 #Script to preprocess sentinel images and obtain ONLY NDVI /SAVI / MSAVI values
-#TODO:add function 9 to crop raster values to study area
 #TODO 5.0 Altitude average uaing dem (as separate function)
 #TODO add definition of output folder name within ndvi/savi/msavifunctions
-#TODO: correct error below: "wrong parameter value: empty"
 
 #------------------------------SETTINGS-------------------------
 # Prepare the environment
@@ -462,7 +460,6 @@ def clMask(img, clPath, baseName, wod):
     print "parameter 7: resolution: {}\n" .format(cloudRes)
     print "parameter 10: output location: {} \n" .format(rMaskPath)
     x=datetime.datetime.now()
-    #TODO: correct error below: "wrong parameter value: empty"
     p.runalg("grass7:r.mask.vect", cpv, img,"","",True, cloudEx, cloudRes, -1, 0.00001,rMaskPath)
     y=datetime.datetime.now()
     c=y-x
@@ -485,7 +482,7 @@ def clMask(img, clPath, baseName, wod):
 
 #output (STRING) -path to masked ndvi (clouds excluded)
 def clMask2(img, clPath, baseName, wod):
-    year=baseName. split("_")[2][0:4]
+    year=baseName.split("_")[2][0:4] 
     tile=baseName.split("_")[5]
     mainDir=os.path.join(clPath, tile, year, baseName+".SAFE")
     if not os.path.exists(mainDir):
@@ -511,28 +508,28 @@ def clMask2(img, clPath, baseName, wod):
         print "cloud vector translation did work!!"
     # rasterize cloud mask
     # parameters to rasterize
-    fName=[field.name() for field in QgsVectorLayer(cpv, "cl", "ogr").pendingFields()][0]
-    print "first field name is"
-    print fName
     cloudRes=QgsRasterLayer(img).rasterUnitsPerPixelX()
     cloudRast=wod+"clMask.tif"
     #rasterization
     x=datetime.datetime.now()
-    cmd="gdal_rasterize -burn 0 -a_nodata 1000 -a_srs %s -te %s -tr %s %s %s %s" %(imgCrs.authid(), extImg.replace(","," "), cloudRes, cloudRes, cpv, cloudRast)
+
+    cmd="gdal_rasterize -burn 10 -a_srs %s -te %s -tr %s %s %s %s" %(imgCrs.authid(), extImg.replace(","," "), cloudRes, cloudRes, cpv, cloudRast)
     print cmd
     os.system(cmd)
-    #p.runalg("gdalogr:rasterize", cpv, fName, 1, 10,10, extImg, False, 5,0,4,75, 6,1,False,0,"-burn 1 -a_srs 'EPSG:32630'",cloudRast)
+
+    #change nodata value
+    cmd="gdal_edit.py -unsetnodata %s" %(cloudRast)
+    os.system(cmd)
+    print "check nodatavalues in %s" %(cloudRast)
+        #cloudRast2=wod+"clMaskNoData.tif"
+    #p.runalg("grass7:r.null", cloudRast,"",1,False,False,False,False,False, extImg,cloudRes, cloudRast2)
     if not QgsRasterLayer(cloudRast).isValid():
-        #turn null to 0 values in cloud mask and use them
-        print "Cloud raster {cloudRast} has a problem \n"
-        raise SystemExit
-    # Mask out cloudy pixels
+        print "Cloud raster %s has a problem \n" %(cloudRast)
+  # Mask out cloudy pixels
     rMaskPath=wod+"clMaskNDVI.tif"
-    cmd="gdal_calc.py -A %s -B %s --outfile=%s --calc='A*(B>0)' " %(img, cloudRast, rMaskPath)
+    cmd="gdal_calc.py -A %s -B %s --outfile=%s --calc='A*(B<9)' " %(img, cloudRast, rMaskPath)
     print(cmd)
     os.system(cmd)
-    #p.runalg("gdalogr:rastercalculator", img, "1", cloudRast, "1", None, "1", None, "1", None, "1", None, "1", "A*((-1*B)+1)", "", 5, "", rMaskPath)
-    #TODO add gdal calc expression
     y=datetime.datetime.now()
     c=y-x
     d=divmod(c.days*86400+c.seconds, 60)
