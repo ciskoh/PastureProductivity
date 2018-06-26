@@ -1,0 +1,198 @@
+Help on LayerType in module qgis._core object:
+
+class LLaayyeerrTTyyppee(__builtin__.int)
+ |  Method resolution order:
+ |      LayerType
+ |      __builtin__.int
+ |      __builtin__.object
+ |  
+ |  Methods defined here:
+ |  
+ |  ____rreedduuccee____ = _pickle_enum(...)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  ____ddiicctt____
+ |      dictionary for instance variables (if defined)
+ |  
+ |  ____wweeaakkrreeff____
+ |      list of weak references to the object (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from __builtin__.int:
+ |  
+ |  ____aabbss____(...)
+ |      x.__abs__() <==> abs(x)
+ |  
+ |  ____aadddd____(...)
+ |      x.__add__(y) <==> x+y
+ |  
+ |  ____aanndd____(...)
+ |      x.__and__(y) <==> x&y
+ |  
+ |  ____ccmmpp____(...)
+ |      x.__cmp__(y) <==> cmp(x,y)
+ |  
+ |  ____ccooeerrccee____(...)
+ |      x.__coerce__(y) <==> coerce(x, y)
+ |  
+ |  ____ddiivv____(...)
+ |      x.__div__(y) <==> x/y
+ |  
+ |  ____ddiivvmmoodd____(...)
+ |      x.__divmod__(y) <==> divmod(x, y)
+ |  
+ |  ____ffllooaatt____(...)
+ |      x.__float__() <==> float(x)
+ |  
+ |  ____fflloooorrddiivv____(...)
+ |      x.__floordiv__(y) <==> x//y
+ |  
+ |  ____ffoorrmmaatt____(...)
+ |  
+ |  ____ggeettaattttrriibbuuttee____(...)
+ |      x.__getattribute__('name') <==> x.name
+ |  
+ |  ____ggeettnneewwaarrggss____(...)
+ |  
+ |  ____hhaasshh____(...)
+ |      x.__hash__() <==> hash(x)
+ |  
+ |  ____hheexx____(...)
+ |      x.__hex__() <==> hex(x)
+ |  
+ |  ____iinnddeexx____(...)
+ |      x[y:z] <==> x[y.__index__():z.__index__()]
+ |  
+ |  ____iinntt____(...)
+ |      x.__int__() <==> int(x)
+ |  
+ |  ____iinnvveerrtt____(...)
+ |      x.__invert__() <==> ~x
+ |  
+ |  ____lloonngg____(...)
+ |      x.__long__() <==> long(x)
+ |  
+ |  ____llsshhiifftt____(...)
+ |      x.__lshift__(y) <==> x<<y
+ |  
+ |  ____mmoodd____(...)
+ |      x.__mod__(y) <==> x%y
+ |  
+ |  ____mmuull____(...)
+ |      x.__mul__(y) <==> x*y
+ |  
+ |  ____nneegg____(...)
+ |      x.__neg__() <==> -x
+ |  
+ |  ____nnoonnzzeerroo____(...)
+ |      x.__nonzero__() <==> x != 0
+ |  
+ |  ____oocctt____(...)
+ |      x.__oct__() <==> oct(x)
+ |  
+ |  ____oorr____(...)
+ |      x.__or__(y) <==> x|y
+ |  
+ |  ____ppooss____(...)
+ |      x.__pos__() <==> +x
+ |  
+ |  ____ppooww____(...)
+ |      x.__pow__(y[, z]) <==> pow(x, y[, z])
+ |  
+ |  ____rraadddd____(...)
+ |      x.__radd__(y) <==> y+x
+ |  
+ |  ____rraanndd____(...)
+ |      x.__rand__(y) <==> y&x
+ |  
+ |  ____rrddiivv____(...)
+ |      x.__rdiv__(y) <==> y/x
+ |  
+ |  ____rrddiivvmmoodd____(...)
+ |      x.__rdivmod__(y) <==> divmod(y, x)
+ |  
+ |  ____rreepprr____(...)
+ |      x.__repr__() <==> repr(x)
+ |  
+ |  ____rrfflloooorrddiivv____(...)
+ |      x.__rfloordiv__(y) <==> y//x
+ |  
+ |  ____rrllsshhiifftt____(...)
+ |      x.__rlshift__(y) <==> y<<x
+ |  
+ |  ____rrmmoodd____(...)
+ |      x.__rmod__(y) <==> y%x
+ |  
+ |  ____rrmmuull____(...)
+ |      x.__rmul__(y) <==> y*x
+ |  
+ |  ____rroorr____(...)
+ |      x.__ror__(y) <==> y|x
+ |  
+ |  ____rrppooww____(...)
+ |      y.__rpow__(x[, z]) <==> pow(x, y[, z])
+ |  
+ |  ____rrrrsshhiifftt____(...)
+ |      x.__rrshift__(y) <==> y>>x
+ |  
+ |  ____rrsshhiifftt____(...)
+ |      x.__rshift__(y) <==> x>>y
+ |  
+ |  ____rrssuubb____(...)
+ |      x.__rsub__(y) <==> y-x
+ |  
+ |  ____rrttrruueeddiivv____(...)
+ |      x.__rtruediv__(y) <==> y/x
+ |  
+ |  ____rrxxoorr____(...)
+ |      x.__rxor__(y) <==> y^x
+ |  
+ |  ____ssttrr____(...)
+ |      x.__str__() <==> str(x)
+ |  
+ |  ____ssuubb____(...)
+ |      x.__sub__(y) <==> x-y
+ |  
+ |  ____ttrruueeddiivv____(...)
+ |      x.__truediv__(y) <==> x/y
+ |  
+ |  ____ttrruunncc____(...)
+ |      Truncating an Integral returns itself.
+ |  
+ |  ____xxoorr____(...)
+ |      x.__xor__(y) <==> x^y
+ |  
+ |  bbiitt__lleennggtthh(...)
+ |      int.bit_length() -> int
+ |      
+ |      Number of bits necessary to represent self in binary.
+ |      >>> bin(37)
+ |      '0b100101'
+ |      >>> (37).bit_length()
+ |      6
+ |  
+ |  ccoonnjjuuggaattee(...)
+ |      Returns self, the complex conjugate of any int.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from __builtin__.int:
+ |  
+ |  ddeennoommiinnaattoorr
+ |      the denominator of a rational number in lowest terms
+ |  
+ |  iimmaagg
+ |      the imaginary part of a complex number
+ |  
+ |  nnuummeerraattoorr
+ |      the numerator of a rational number in lowest terms
+ |  
+ |  rreeaall
+ |      the real part of a complex number
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from __builtin__.int:
+ |  
+ |  ____nneeww____ = <built-in method __new__ of type object>
+ |      T.__new__(S, ...) -> a new object with type S, a subtype of T
