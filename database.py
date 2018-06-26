@@ -76,10 +76,12 @@ def mkWod(parent, orWodName):
     else:
         print "created working folder  at %s\n" %(wod)
 
-def makeList(fold, ext):
+def makeList(fold, ext, firstPos, lastPos):
 # make dictionary of file names present in the folder
 # input: fold - STRING - path to folder to scan for files
 #        ext  - STRING - extendion of files to scan for e.g. ".tif"
+#        firstPos - INTEGER - first position of date string in filename
+#        lastPos - INTEGER -last position of date string in filename
 
 # output: Nested list with dates and paths
     imgPath=[]
@@ -87,7 +89,7 @@ def makeList(fold, ext):
     for r,d,files in os.walk(fold):
         for f in files:
             if f.endswith(".tif"):
-                imgD=f[11:19]
+                imgD=f[firstPos:lastPos]
                 if imgD > startD:
                     imgPath.append(os.path.join(r, f))
                     dateList.append(imgD)
@@ -448,10 +450,10 @@ mkWod(parent, orWodName)
 
 # 0.2 get images List and establish date list
 #TODO add check to work only on new image
-orImg=makeList(imgFold, ".tif")
+orImg=makeList(imgFold, ".tif",11,19)
 
 #check dates of processed images
-procImg=makeList(finWod, ".tif")
+procImg=makeList(finWod, ".tif",2,10)
 
 #compare original images with processed images
 try:
